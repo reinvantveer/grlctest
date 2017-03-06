@@ -1,0 +1,12 @@
+#+ summary: First test
+#+ endpoint: https://data.pdok.nl/sparql
+#+ method: GET
+
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+select ?class ?class_label
+where {
+	?class a ?type.
+	?class rdfs:label ?class_label.
+	filter (?type = owl:Class || ?type = rdfs:Class)
+}
